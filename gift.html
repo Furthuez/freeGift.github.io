@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angpao Surprise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f4f4f4;
+        }
+        #popup {
+            background: linear-gradient(145deg, #FF5733, #FFC300);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        #popup h2 {
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px;
+        }
+        #popup button {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #FF5733;
+            color: white;
+            transition: 0.3s;
+        }
+        #popup button:hover {
+            background-color: #FFC300;
+        }
+        #videoContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        video {
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="openPopup">Buka Angpao 🎁</button>
+
+<div id="popup">
+    <h2>🎉 Hadiah Dariku! 🎉</h2>
+    <button id="rickrollBtn">Klik untuk Lihat</button>
+</div>
+
+<div id="videoContainer">
+    <video id="rickrollVideo" autoplay controls>
+        <source src="rickroll.mp4" type="video/mp4">
+        Browser kamu tidak mendukung video tag.
+    </video>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#openPopup').click(function() {
+            $('#popup').fadeIn(500);
+        });
+
+        $('#rickrollBtn').click(function() {
+            $('#popup').fadeOut(500);
+            $('#videoContainer').fadeIn(500);
+            $('#rickrollVideo')[0].play();
+        });
+    });
+</script>
+
+</body>
+</html>
